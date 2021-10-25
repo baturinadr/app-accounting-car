@@ -1,0 +1,54 @@
+<div class="owner-full-name">
+  <div class="owner-group">
+    <label for="name">Фамилия</label>
+    <input id="name" type="text" value="Петрова" pInputText>
+  </div><!-- /.owner-group -->
+
+  <div class="owner-group">
+    <label for="patronymic">Имя</label>
+    <input id="patronymic" type="text" value="Мария" pInputText>
+  </div><!-- /.owner-group -->
+
+  <div class="owner-group">
+    <label for="surname">Отчество</label>
+    <input id="surname" type="text" value="Сергеевна" pInputText>
+  </div><!-- /.owner-group -->
+</div><!-- /.owner-full-name -->
+
+<div class="cars">
+  <h1>Автомобили</h1>
+
+  <div class="cars-details">
+    <p-table [value]="carsDetails" responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Номер</th>
+          <th>Марка</th>
+          <th>Модель</th>
+          <th>Год</th>
+          <th></th>
+        </tr>
+      </ng-template><!-- /pTemplate="header" -->
+
+      <ng-template pTemplate="body" let-carDetail>
+        <tr>
+          <td>{{carDetail.carNumber}}</td>
+          <td>{{carDetail.brand}}</td>
+          <td>{{carDetail.model}}</td>
+          <td>{{carDetail.year}}</td>
+          <td>
+            <button pButton type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+          </td>
+        </tr>
+      </ng-template><!-- /pTemplate="body" -->
+    </p-table>
+  </div><!-- /.cars-details -->
+
+  <div class="btns">
+    <p-button label="Добавить автомобиль" icon="pi pi-plus" styleClass="p-button-sm" class="btn"></p-button>
+
+    <p-button label="Сохранить" icon="pi pi-save" styleClass="p-button-sm" class="btn"></p-button>
+    <p-button label="Назад" icon="pi pi-arrow-left" styleClass="p-button-sm" class="btn"></p-button>
+  </div><!-- /.btns -->
+</div>
+
