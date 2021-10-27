@@ -8,9 +8,9 @@ Injectable()
 export class InMemoryDataService implements InMemoryDbService {
   public createDb(): { [key: string]: IOwnerEntity[] } {
     const owners: IOwnerEntity[] = [
-      {name: 'Иван', patronymic: 'Иванович', surname: 'Иванов', carsCount: 1},
-      {name: 'Наталья', patronymic: 'Игоревна', surname: 'Петрова', carsCount: 2},
-      {name: 'Алексей', patronymic: 'Сергеевич', surname: 'Антонов', carsCount: 1}
+      {id: 1, name: 'Иван', patronymic: 'Иванович', surname: 'Иванов', carsCount: 1},
+      {id: 2, name: 'Наталья', patronymic: 'Игоревна', surname: 'Петрова', carsCount: 2},
+      {id: 3, name: 'Алексей', patronymic: 'Сергеевич', surname: 'Антонов', carsCount: 1}
     ];
     return {owners: owners};
   }

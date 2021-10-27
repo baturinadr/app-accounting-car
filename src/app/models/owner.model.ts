@@ -1,5 +1,5 @@
 export interface IOwnerEntity {
-  id?: string;
+  id?: number;
   name: string;
   patronymic: string;
   surname: string;

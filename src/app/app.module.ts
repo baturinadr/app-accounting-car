@@ -26,7 +26,10 @@ import {InMemoryDataService} from "./in-memory-data.service";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false})
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 0
+    })
   ],
   providers: [CarOwnersService],
   bootstrap: [AppComponent]
