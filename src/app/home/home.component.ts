@@ -1,22 +1,38 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Subject} from "rxjs";
+import {takeUntil} from "rxjs/operators";
+
 import {IOwnerEntity} from "../models/owner.model";
+import {CarOwnersService} from "../services/car-owners.service";
+
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  public owners: IOwnerEntity[] = [
-    {id: '1aw8s', name: 'Иван', patronymic: 'Иванович', surname: 'Иванов', carsCount: 1},
-    {id: '1aw0s3', name: 'Наталья', patronymic: 'Игоревна', surname: 'Петрова', carsCount: 2},
-    {id: '1aw4s9', name: 'Алексей', patronymic: 'Сергеевич', surname: 'Антонов', carsCount: 1}
-  ];
+export class HomeComponent implements OnInit, OnDestroy {
+  public selectCar: null | IOwnerEntity;
+  public owners: IOwnerEntity[] = [];
+  private destroy$: Subject<void | null> = new Subject<void | null>();
 
-  constructor() {
+  constructor(private carOwnersService: CarOwnersService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.getList();
   }
 
+  public ngOnDestroy(): void {
+    this.destroy$.next(null);
+    this.destroy$.complete();
+  }
+
+  private getList(): void {
+    this.carOwnersService.getOwners()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((owners: IOwnerEntity[]) => {
+        this.owners = owners;
+      });
+  }
 }

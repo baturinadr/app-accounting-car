@@ -1,14 +1,15 @@
 <h1>Владельцы автомобилей</h1>
 
 <div class="btns">
-  <p-button label="Добавить" icon="pi pi-plus" styleClass="p-button-sm" class="btn"></p-button>
+  <p-button class="btn" icon="pi pi-plus" label="Добавить" styleClass="p-button-sm"></p-button>
 
-  <p-button label="Просмотр" icon="pi pi-eye" styleClass="p-button-sm" class="btn"></p-button>
-  <p-button label="Редактировать" icon="pi pi-pencil" styleClass="p-button-sm" class="btn"></p-button>
-  <p-button label="Удалить" icon="pi pi-trash" styleClass="p-button-sm" class="btn"></p-button>
+  <p-button class="btn" icon="pi pi-eye" label="Просмотр" styleClass="p-button-sm" [disabled]="!selectCar"></p-button>
+  <p-button class="btn" icon="pi pi-pencil" label="Редактировать" styleClass="p-button-sm"
+            [disabled]="!selectCar"></p-button>
+  <p-button class="btn" icon="pi pi-trash" label="Удалить" styleClass="p-button-sm" [disabled]="!selectCar"></p-button>
 </div><!-- /.btns -->
 
-<p-table [value]="owners" responsiveLayout="scroll">
+<p-table [value]="owners" selectionMode="single" [(selection)]="selectCar" responsiveLayout="scroll">
   <ng-template pTemplate="header">
     <tr>
       <th>Фамилия</th>
@@ -19,7 +20,7 @@
   </ng-template><!-- /pTemplate="header" -->
 
   <ng-template pTemplate="body" let-owner>
-    <tr>
+    <tr [pSelectableRow]="owner">
       <td>{{owner.surname}}</td>
       <td>{{owner.name}}</td>
       <td>{{owner.patronymic}}</td>
