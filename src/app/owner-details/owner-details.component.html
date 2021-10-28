@@ -1,17 +1,17 @@
-<div class="owner-full-name">
+<div class="owner-full-name" [formGroup]="form">
   <div class="owner-group">
-    <label for="name">Фамилия</label>
-    <input id="name" type="text" value="Петрова" pInputText>
+    <label for="name">Имя</label>
+    <input id="name" type="text" pInputText formControlName="name">
   </div><!-- /.owner-group -->
 
   <div class="owner-group">
-    <label for="patronymic">Имя</label>
-    <input id="patronymic" type="text" value="Мария" pInputText>
+    <label for="patronymic">Отчество</label>
+    <input id="patronymic" type="text" pInputText formControlName="patronymic">
   </div><!-- /.owner-group -->
 
   <div class="owner-group">
-    <label for="surname">Отчество</label>
-    <input id="surname" type="text" value="Сергеевна" pInputText>
+    <label for="surname">Фамилия</label>
+    <input id="surname" type="text" pInputText formControlName="surname">
   </div><!-- /.owner-group -->
 </div><!-- /.owner-full-name -->
 
@@ -58,5 +58,5 @@
   </div><!-- /.btns -->
 </div><!-- /.cars -->
 
-<!-- Modal -->
-<app-create-owner></app-create-owner>
+
+<app-create-car [displayModal]="isAddCarModalVisible"></app-create-car>

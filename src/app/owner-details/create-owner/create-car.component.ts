@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
-  selector: 'app-create-owner',
+  selector: 'app-create-car',
   templateUrl: './create-car.component.html',
   styleUrls: ['./create-car.component.scss']
 })
 export class CreateCarComponent implements OnInit {
-  public displayModal = false;
+  @Input() public displayModal = false;
   public form: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
@@ -16,10 +16,6 @@ export class CreateCarComponent implements OnInit {
 
   public ngOnInit(): void {
     this.initializeForm();
-  }
-
-  public showCreateForm(): void {
-    this.displayModal = true;
   }
 
   public createOwner(): void {

@@ -16,6 +16,10 @@ export class CarOwnersService {
     return this.http.get<IOwnerEntity[]>(environment.baseUrl);
   }
 
+  public getOwnerById(id: number): Observable<IOwnerEntity> {
+    return this.http.get<IOwnerEntity>(`${environment.baseUrl}/${id}}`);
+  }
+
   public deleteOwner(ownerId: number): Observable<IOwnerEntity[]> {
     return this.http
       .delete(`${environment.baseUrl}/${ownerId}`)
