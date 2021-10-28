@@ -1,0 +1,24 @@
+<p-dialog header="Добавить автомобиль" [modal]="true" [(visible)]="displayModal">
+  <div class="content">
+    <div class="create-owner-group">
+      <label for="carNumber">Номер:</label>
+      <input type="text" id="carNumber" pInputText>
+    </div><!-- /.create-owner-group -->
+    <div class="create-owner-group">
+      <label for="brand">Марка:</label>
+      <input type="text" id="brand" pInputText>
+    </div><!-- /.create-owner-group -->
+    <div class="create-owner-group">
+      <label for="model">Модель:</label>
+      <input type="text" id="model" pInputText>
+    </div><!-- /.create-owner-group -->
+    <div class="create-owner-group">
+      <label for="year">Год:</label>
+      <input type="text" id="year" pInputText>
+    </div><!-- /.create-owner-group -->
+  </div><!-- /.content -->
+
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="createOwner()" label="Создать" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
